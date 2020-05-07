@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <title>Weather-Dashboard</title>
+</head>
+
+
+<body class="container">
+    <header class="jumbotron">
+        <h1 class="display-3"> <i class="fas fa-cloud-sun"></i></i> Weather-Dashboard <i
+                class="fas fa-cloud-showers-heavy"></i> </h1>
+    </header>
+
+    <div class="container row">
+        <ul class="list-group col-3">
+            <p> Search For a City</p>
+            <form class="form-inline">
+                <input class="form-control " type="search" placeholder="city name">
+                <button id="searchbut" type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <div id="listcity">
+
+                <li class="list-group-item" id="savedcity">Sacramento</li>
+                <li class="list-group-item" id="savedcity"></li>
+                <li class="list-group-item" id="savedcity"></li>
+                <li class="list-group-item" id="savedcity"></li>
+                <li class="list-group-item" id="savedcity"></li>
+                <li class="list-group-item" id="savedcity"></li>
+                <li class="list-group-item" id="savedcity"></li>
+                <li class="list-group-item" id="savedcity"></li>
+                <li class="list-group-item" id="savedcity"></li>
+            </div>
+        </ul>
+        <hr>
+        <div class="card col-9 container">
+            <div class="card-body">
+                <h2 class="card-title" id="cityname">City Name</h2>
+                <hr>
+                <h6 class="card-subtitle mb-2 text-muted" id="tempcity"> <span><i
+                            class="fas fa-temperature-low"></i>Temperature : </span></h6>
+                <hr>
+                <h6 class="card-subtitle mb-2 text-muted" id="Humcity"> <span>Humidity :  </span></h6>
+                <hr>
+                <h6 class="card-subtitle mb-2 text-muted" id="windspeed"> <span>Wind Speed : </span></h6>
+                <hr>
+                <h6 class="card-subtitle mb-2 text-muted" id="uvindex"> <span>UV Index : </span></h6>
+                <hr>
+            </div>
+            <h2>5-Day Forecast:</h2>
+            <div class="container" id="forescast">
+                <div class="card c" style="width: 8rem" id="day1">
+                    <h5 class="card-title" id="date">Date</h5>
+                    <p id="weatherday"> weather </p>
+                    <p id="tempday"> temperature </p>
+                    <P id="humday"> Humidity</P>
+                </div>
+                <div class="card c" style="width: 8rem" id="day2">
+                    <h5 class="card-title" id="date">Date</h5>
+                    <p id="weatherday"> weather </p>
+                    <p id="tempday"> temperature </p>
+                    <P id="humday"> Humidity</P>
+                </div>
+                <div class="card c" style="width: 8rem" id="day3">
+                    <h5 class="card-title" id="date">Date</h5>
+                    <p id="weatherday"> weather </p>
+                    <p id="tempday"> temperature </p>
+                    <P id="humday"> Humidity</P>
+                </div>
+                <div class="card c" style="width: 8rem" id="day4">
+                    <h5 class="card-title" id="date">Date</h5>
+                    <p id="weatherday"> weather </p>
+                    <p id="tempday"> temperature </p>
+                    <P id="humday"> Humidity</P>
+                </div>
+                <div class="card c" style="width: 8rem" id="day5">
+                    <h5 class="card-title" id="date">Date</h5>
+                    <p id="weatherday"> weather </p>
+                    <p id="tempday"> temperature </p>
+                    <P id="humday"> Humidity</P>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

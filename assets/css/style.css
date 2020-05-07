@@ -1,0 +1,72 @@
+body{
+    font-style: italic;
+}
+nav{
+    color: white;
+    font-size: 60px;
+    text-align: right;
+
+}
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+    color:#ffffff;
+    border-radius: 0;
+    border-bottom: 10px solid black;
+    padding: 2px;
+    background-color: black
+    
+  }
+
+.list-group {
+      background-color: rgb(235, 231, 231);
+  }
+
+  ul li,form,p  {
+      border: black;
+      margin-left: 12px;
+  }
+  ul #listcity{
+     margin-top: 5px;
+     margin-bottom: 5px;
+  }
+  
+  .c{
+      background-color: rgb(15, 68, 240);
+      color: white;
+      float: left;
+      margin: 10px;
+  }
+  .c:hover {
+    background-color: black;
+  }
+
+  button{
+      background-color: blue;
+      color: white;
+      font-size: 22px;
+      border-style: double;
+  }
+  button:hover {
+    background-color: red
+  }
+
+  li{
+      height: 50px;
+      text-align: center;
+      font-size: 20px;
+      font-style: italic;
+  }
+  li:hover {
+    background-color: rgb(175, 175, 253);
+  }
+  ul p{
+      font-size: 20px;
+      font-weight: bolder;
+  }
+  h6{
+      font-weight: bolder;
+  }
+
+
+ 
