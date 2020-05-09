@@ -4,9 +4,9 @@ $("#currentdate").text($cityDate);
 
 /* City Search Functions */
 
-// click listener calls searchCity() and soon a function related to the .search-history sidebar
+// click listener calls citysearch() and soon a function related to the .search-history sidebar
 let $clicked = $(".buttonsearch");
-$clicked.on("click", searchCity);
+$clicked.on("click", citysearch);
 $clicked.on("click", searchSave);
 // add Enter key for searching as well
 $("input").keyup(function () {
@@ -15,30 +15,24 @@ $("input").keyup(function () {
     }
 })
 
-// searchCity() fills the Main View sections - #current-view card & #five-day cards
-function searchCity() {
-    // value for new search from input is from a sibling of .btn's parent
-    // making it lowercase to help check for dupes later, see line 217
-    let $city = (($(this).parent()).siblings("#cityenter")).val().toLowerCase();
-    console.log($city);
-
-    // empty search bar with setTimeout()
-    // we're also capturing this value in searchSave() line 210
-    // so we need it to not clear so fast that it doesn't get captured there
+// Seachcityname function
+function citysearch() {
+    // saved citer enter by USer in a let
+    let cityname = (($(this).parent()).siblings("#cityenter")).val().toLowerCase();
+    // empty search bar with setTimeout() so the City name is not gonna stuck on input section
     function clear() {
         $("#cityenter").val("");
     }
     setTimeout(clear, 300);
-
-    /* Query for Current Weather (#current-view) */
+    //Query for Current Weather Using API URL And Ajax 
     let firstQueryURL = "https://api.openweathermap.org/data/2.5/weather?q=" +
-        $city + "&units=imperial&appid=e7c303b6206e1039548ab3f11d2207b3";
+        cityname + "&units=imperial&appid=e7c303b6206e1039548ab3f11d2207b3";
     $.ajax({
         url: firstQueryURL,
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        // vars to hold city-stats, current temp, humidity, wind & icon
+        // create var to hold city current information
         let $currentTemp = parseInt(response.main.temp) + "°F";
         let $currentHum = response.main.humidity + "%";
         let $currentWind = parseInt(response.wind.speed) + "mph";
@@ -46,7 +40,7 @@ function searchCity() {
         let $currentIconURL = "http://openweathermap.org/img/w/" + $currentIcon + ".png";
 
         // display in html
-        $("#namecity").text($city);
+        $("#namecity").text(cityname);
         $("#tempcity").text( $currentTemp);
         $("#humcity").text( $currentHum);
         $("#windspeed").text( $currentWind);
@@ -200,7 +194,7 @@ $(document).ready(function () {
 let historydisplay = [];
 // Function to Load Seach In local Storage and Display on HTML page
 function searchSave() {
-    // same jQuery selector from searchCity() puts value into newcity
+    // same jQuery selector from citysearch() puts value into newcity
     let newcity = (($(this).parent()).siblings("#cityenter")).val().toLowerCase();
     console.log(newcity);
     historydisplay.push(newcity);
@@ -219,11 +213,11 @@ function searchSave() {
 $("section").on("click", ".past", savedsearch);
 
 function savedsearch() {
-    // var for text of past city
+    // var for text of pastcityname
     let $oldCity = $(this).text();
     // put it in the input field
     $("#cityenter").val($oldCity);
-    // this triggers the original click listener, above searchCity()
+    // this triggers the original click listener, above citysearch()
     $clicked.trigger("click");
 }
 
