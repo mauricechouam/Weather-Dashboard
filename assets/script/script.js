@@ -49,11 +49,11 @@ function searchCity() {
         let $currentIconURL = "http://openweathermap.org/img/w/" + $currentIcon + ".png";
 
         // display in html
-        $("#city-name").text($city);
-        $("#temp").text( $currentTemp);
-        $("#humidity").text( $currentHum);
-        $("#wind").text( $currentWind);
-        $("#current-icon").attr({ "src": $currentIconURL, "alt": "Current Weather Icon" });
+        $("#namecity").text($city);
+        $("#tempcit").text( $currentTemp);
+        $("#humcity").text( $currentHum);
+        $("#windspeed").text( $currentWind);
+        $("#weathericon").attr({ "src": $currentIconURL, "alt": "Current Weather Icon" });
 
         // lat & lon for secondQueryURL below
         let lat = response.coord.lat;
@@ -191,8 +191,8 @@ $(document).ready(function () {
          }
  
          let lastIndex = (historydisplay.length - 1);
-         // concat a jQuery selector & click listener that calls searchPast()
-         $("#search" + lastIndex).on("click", searchPast);
+         // concat a jQuery selector & click listener that calls savedsearch()
+         $("#search" + lastIndex).on("click", savedsearch);
          // .trigger() method that 'clicks' on that #searchx
          $("#search" + lastIndex).trigger("click");
      }
@@ -219,16 +219,16 @@ function searchSave() {
     }
 }
 
-// Function to reload the pastsearch information
-$("section").on("click", ".past", function () {
+$("section").on("click", ".past", savedsearch);
+
+function savedsearch() {
     // var for text of past city
-    let $savecity = $(this).text();
+    let $oldCity = $(this).text();
     // put it in the input field
-    $("#cityenter").val($savecity);
+    $("#cityenter").val($oldCity);
     // this triggers the original click listener, above searchCity()
     $clicked.trigger("click");
-    
-});
+}
 
 // Function to reinitilaize the Hisory
 let $clear = $("#clearhist");

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!--head-->
 <head>
-    <title>Weather Dashboard</title>
+    <title>Weather-Dashboard</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -10,11 +10,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="icon" href="/assets/image/nic.jpg">
-
 </head>
 
+<!--Body-->
 <body>
-
     <header class="jumbotron">
         <h1 class="display-3"> <i class="fas fa-cloud-sun"></i></i> Weather-Dashboard <i
                 class="fas fa-cloud-showers-heavy"></i> </h1>
@@ -64,16 +63,14 @@
                 <div class="container">
                     <div class="card card-body current-view" id="current-view">
                         <div class="card-title " id="city-stats">
-
-                            <h2 id="city-name">City name :</h2>
+                            <h2 id="namecity">City name :</h2>
                             <p id="city-date"></p>
-                            <img id="current-icon">
-
-                            <h6 class="card-subtitle mb-2 "> Temperature : <span id="temp"></span></h6>
+                            <img id="weathericon">
+                            <h6 class="card-subtitle mb-2 "> Temperature : <span id="tempcity"></span></h6>
                             <hr>
-                            <h6 class="card-subtitle mb-2 ">Humidity : <span id="humidity"></span></h6>
+                            <h6 class="card-subtitle mb-2 ">Humidity : <span id="humcity"></span></h6>
                             <hr>
-                            <h6 class="card-subtitle mb-2 "> Wind Speed : <span id="wind"></span></h6>
+                            <h6 class="card-subtitle mb-2 "> Wind Speed : <span id="windspeed"></span></h6>
                             <hr>
                             <h6 class="card-subtitle mb-2"> UV Index : <span id="uv-index"></span></h6>
                         </div>
