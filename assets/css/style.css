@@ -54,8 +54,15 @@ ul #listcity{
   background-color: black;
 }
 section button{
-  width: 220px;
+  width: 420px;
   height: 40px;
+}
+
+section button:hover{
+  background-color:gainsboro;
+}
+.col-sm .card:hover{
+  background-color: black;
 }
 
 li{
@@ -90,7 +97,7 @@ div .card-body{
    border: 2px solid #ccbbcc;
    box-shadow: 10px 10px 10px #0c0658;
    height: 220px;
-   width: 108px;
+   width: 120px;
 }
 
 .col-sm .card div{
