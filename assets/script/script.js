@@ -1,5 +1,3 @@
-
-
 // Today's Date in #current-view card
 let $cityDate = moment().format("llll");
 $("#city-date").text($cityDate);
@@ -40,7 +38,6 @@ function searchCity() {
         method: "GET"
     }).then(function (response) {
         console.log(response);
-
         // vars to hold city-stats, current temp, humidity, wind & icon
         let $currentTemp = parseInt(response.main.temp) + "°F";
         let $currentHum = response.main.humidity + "%";
@@ -50,7 +47,7 @@ function searchCity() {
 
         // display in html
         $("#namecity").text($city);
-        $("#tempcit").text( $currentTemp);
+        $("#tempcity").text( $currentTemp);
         $("#humcity").text( $currentHum);
         $("#windspeed").text( $currentWind);
         $("#weathericon").attr({ "src": $currentIconURL, "alt": "Current Weather Icon" });
