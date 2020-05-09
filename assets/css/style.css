@@ -79,8 +79,8 @@ ul p{
     font-size: 20px;
     font-weight: bolder;
 }
-h6{
-    font-weight: bolder;
+h6,h5{
+    font-weight: bold;
 }
 
 div #forescast{
@@ -95,8 +95,8 @@ div .card-body{
 
 .col-sm .card{
   border-radius: 30px;
-   border: 2px solid #ccbbcc;
-   box-shadow: 10px 10px 10px #0c0658;
+   border: 2px solid #5f0505;
+   box-shadow: 10px 10px 10px #771e03;
    height: 220px;
    width: 110px;
 }
@@ -114,4 +114,11 @@ div .card-body{
   color: white;
   font-weight: bold;
   
+}
+h5{
+  color: #ffffff;
+ font-size: 30px;
+ border: 10px solid #2b2626;
+ text-align: center;
+ background-color: rgb(27, 28, 29);
 }
