@@ -7,8 +7,8 @@
 body{
   font-style: italic;
 background-image: url("../image/img.jpg");
-background-repeat: no-repeat;
-background-size: 1600px;
+background-repeat: round;
+
   
 }
 nav{
