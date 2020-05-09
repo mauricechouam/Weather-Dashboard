@@ -143,3 +143,16 @@ width: 100px;
  #clearhist:hover{
    background-color: red;
  }
+ .btn{
+   background-color: royalblue;
+   color: white;
+   font-size: 15px;
+ }
+ .btn:hover{
+   background-color: rgb(179, 153, 153);
+ }
+ 
+#cityenter{
+  padding: 20px ;
+
+}
