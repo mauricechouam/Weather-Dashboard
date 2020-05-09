@@ -54,7 +54,7 @@ ul #listcity{
   background-color: black;
 }
 section button{
-  width: 420px;
+width: 250px;
   height: 40px;
 }
 
@@ -97,7 +97,7 @@ div .card-body{
    border: 2px solid #ccbbcc;
    box-shadow: 10px 10px 10px #0c0658;
    height: 220px;
-   width: 120px;
+   width: 110px;
 }
 
 .col-sm .card div{

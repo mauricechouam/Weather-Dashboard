@@ -1,29 +1,4 @@
-/* On first load or refresh */
-$(document).ready(function () {
 
-    // if localStorage is not empty, call fillFromStorage()
-    if (localStorage.getItem("cities")) {
-        fillFromStorage();
-    }
-    // otherwise, empty storage means nothing happens until user generates a search
-
-    // fillFromStorage fills sidebar with anthything in localStorage
-    function fillFromStorage() {
-        // grab data, parse and push into searchHistory[], see line 206
-        searchHistory = localStorage.getItem("cities", JSON.stringify(searchHistory));
-        searchHistory = JSON.parse(searchHistory);
-        // iterate through searchHistory, displaying in HTML
-        for (i = 0; i <= searchHistory.length - 1; i++) {
-            $("#Recent-" + i).text(searchHistory[i]);
-        }
-
-        let lastIndex = (searchHistory.length - 1);
-        // concat a jQuery selector & click listener that calls searchPast()
-        $("#Recent-" + lastIndex).on("click", searchPast);
-        // .trigger() method that 'clicks' on that #Recent-x
-        $("#Recent-" + lastIndex).trigger("click");
-    }
-});
 
 // Today's Date in #current-view card
 let $cityDate = moment().format("llll");
@@ -200,8 +175,34 @@ function searchCity() {
     });
 }
 
-// array to use in searchSave(), searchDisplay() & clearHistory()
-let searchHistory = [];
+
+// Fucntion to 
+$(document).ready(function () {
+    // if localStorage is not empty, call fillFromStorage()
+    if (localStorage.getItem("cities")) {
+        fillFromStorage();
+    }
+    // otherwise, empty storage means nothing happens until user generates a search
+
+    // fillFromStorage fills sidebar with anthything in localStorage
+    function fillFromStorage() {
+        // grab data, parse and push into searchHistory[], see line 206
+        historydisplay = localStorage.getItem("cities", JSON.stringify(historydisplay));
+        historydisplay = JSON.parse(historydisplay);
+        // iterate through searchHistory, displaying in HTML
+        for (i = 0; i <= historydisplay.length - 1; i++) {
+            $("#Recent-" + i).text(historydisplay[i]);
+        }
+
+        let lastIndex = (historydisplay.length - 1);
+        // concat a jQuery selector & click listener that calls searchPast()
+        $("#Recent-" + lastIndex).on("click", searchPast);
+        // .trigger() method that 'clicks' on that #Recent-x
+        $("#Recent-" + lastIndex).trigger("click");
+    }
+});
+// Array to display the list of Hi 
+let historydisplay = [];
 
 // searchSave() uses localStorage to manage recently searched cities in sidebar
 function searchSave() {
@@ -209,12 +210,12 @@ function searchSave() {
     let $newCity = (($(this).parent()).siblings("#city-search")).val().toLowerCase();
     console.log($newCity);
     // push $newCity into searchHistory, but it may be a dupe so...
-    searchHistory.push($newCity);
+    historydisplay.push($newCity);
     // new Set to keep only unique values, spread operator to make that an array
     // thanks to youtuber Techsith for the tutorial: https://www.youtube.com/watch?v=dvPybpgk5Y4
-    searchHistory = [...new Set(searchHistory)];
+    historydisplay = [...new Set(historydisplay)];
     // put in localStorage
-    localStorage.setItem("cities", JSON.stringify(searchHistory));
+    localStorage.setItem("cities", JSON.stringify(historydisplay));
     // display in HTML, see below
     searchDisplay();
 }
@@ -223,9 +224,9 @@ function searchSave() {
 function searchDisplay() {
     // for loop to create new vars & concat them into jQuery selectors
     // legit not sure why - 1, just trial and error
-    for (i = 0; i <= searchHistory.length - 1; i++) {
+    for (i = 0; i <= historydisplay.length - 1; i++) {
         // iterate through, displaying in HTML
-        $("#Recent-" + i).text(searchHistory[i]);
+        $("#Recent-" + i).text(historydisplay[i]);
         // add .past class to create listener (below),
         // hover effect & styles, see styles.css
         $("#Recent-" + i).addClass("past");
@@ -248,24 +249,21 @@ function searchPast() {
     $clicked.trigger("click");
 }
 
-// Clearing the sidebar
 
-// clearHistory clears local storage, empties sidebar history
-function clearHistory() {
+// Function to re initilaize the story
+let $clear = $("#clearhist");
+$clear.on("click", function () {
     localStorage.clear();
     // empty main array
-    searchHistory = [];
-    // set first spot to default text & remove .past
-    $("#Recent-0").text("Your Search History").removeClass("past");
-
+    historydisplay = [];
     // loop to put reinsert blankspace to keep size correct
-    for (i = 1; i < 7; i++) {
+    for (i = 0; i < 11; i++) {
         $("#Recent-" + i).html("&nbsp;");
         // remove .past clears listener, hover effect & styling
         $("#Recent-" + i).removeClass("past");
     }
-}
+    
+}); 
 
-// .clear-schedule listener calls clearSchedule()
-let $clear = $("#clear-history");
-$clear.on("click", clearHistory);
+
+
