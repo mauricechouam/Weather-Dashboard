@@ -175,35 +175,32 @@ function searchCity() {
     });
 }
 
-
 // Fucntion to 
+// otherwise, empty storage means nothing happens until user generates a search
+
+    // fillFromStorage fills sidebar with anthything in localStorage
 $(document).ready(function () {
     // if localStorage is not empty, call fillFromStorage()
     if (localStorage.getItem("cities")) {
-        fillFromStorage();
-    }
-    // otherwise, empty storage means nothing happens until user generates a search
-
-    // fillFromStorage fills sidebar with anthything in localStorage
-    function fillFromStorage() {
-        // grab data, parse and push into searchHistory[], see line 206
-        historydisplay = localStorage.getItem("cities", JSON.stringify(historydisplay));
-        historydisplay = JSON.parse(historydisplay);
-        // iterate through searchHistory, displaying in HTML
-        for (i = 0; i <= historydisplay.length - 1; i++) {
-            $("#search" + i).text(historydisplay[i]);
-        }
-
-        let lastIndex = (historydisplay.length - 1);
-        // concat a jQuery selector & click listener that calls searchPast()
-        $("#search" + lastIndex).on("click", searchPast);
-        // .trigger() method that 'clicks' on that #searchx
-        $("#search" + lastIndex).trigger("click");
-    }
-});
-// Array to display the list of Hi 
+         // grab data, parse and push into searchHistory[], s
+         historydisplay = localStorage.getItem("cities", JSON.stringify(historydisplay));
+         historydisplay = JSON.parse(historydisplay);
+         // iterate through searchHistory, displaying in HTML
+         for (i = 0; i <= historydisplay.length - 1; i++) {
+             $("#search" + i).text(historydisplay[i]);
+         }
+ 
+         let lastIndex = (historydisplay.length - 1);
+         // concat a jQuery selector & click listener that calls searchPast()
+         $("#search" + lastIndex).on("click", searchPast);
+         // .trigger() method that 'clicks' on that #searchx
+         $("#search" + lastIndex).trigger("click");
+     }
+ });
+    
+ 
+// Array to display the list of HISTORY
 let historydisplay = [];
-
 // Function to Load Seach In local Storage and Display on HTML page
 function searchSave() {
     // same jQuery selector from searchCity() puts value into newcity
@@ -222,20 +219,18 @@ function searchSave() {
     }
 }
 
-
-
-// Function to reload the pastsearch infmation
+// Function to reload the pastsearch information
 $("section").on("click", ".past", function () {
     // var for text of past city
-    let $sacecity = $(this).text();
+    let $savecity = $(this).text();
     // put it in the input field
-    $("#cityenter").val($sacecity);
+    $("#cityenter").val($savecity);
     // this triggers the original click listener, above searchCity()
     $clicked.trigger("click");
     
 });
 
-// Function to reinitilaize the story
+// Function to reinitilaize the Hisory
 let $clear = $("#clearhist");
 $clear.on("click", function () {
     //clear local storage
