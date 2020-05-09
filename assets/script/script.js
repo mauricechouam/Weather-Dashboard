@@ -1,11 +1,11 @@
-// Today's Date in #current-view card
+// current date
 let $cityDate = moment().format("llll");
-$("#city-date").text($cityDate);
+$("#currentdate").text($cityDate);
 
 /* City Search Functions */
 
 // click listener calls searchCity() and soon a function related to the .search-history sidebar
-let $clicked = $(".search-button");
+let $clicked = $(".buttonsearch");
 $clicked.on("click", searchCity);
 $clicked.on("click", searchSave);
 // add Enter key for searching as well

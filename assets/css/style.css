@@ -8,6 +8,7 @@ body{
 background-image: url("../image/img7.jpg");
 background-repeat: no-repeat;
 background-size: cover;
+font-weight: bold;
 
 
   
@@ -20,7 +21,7 @@ nav{
 }
 .jumbotron  {
   text-align: center;
-  
+
   color:#2eadf7;
   border-radius: 0;
   border-bottom: 10px solid rgb(59, 57, 57);
@@ -45,12 +46,6 @@ ul #listcity{
    margin-bottom: 5px;
 }
 
-.c{
-    background-color: rgb(15, 68, 240);
-    color: white;
-    float: left;
-    margin: 10px;
-}
 .c:hover {
   background-color: black;
 }
@@ -60,10 +55,7 @@ width: 250px;
 }
 
 section button:hover{
-  background-color:gainsboro;
-}
-.col-sm .card:hover{
-  background-color: black;
+  background-color:rgb(240, 164, 164);
 }
 
 li{
@@ -72,9 +64,7 @@ li{
     font-size: 20px;
     font-style: italic;
 }
-li:hover {
-  background-color: rgb(175, 175, 253);
-}
+
 ul p{
     font-size: 20px;
     font-weight: bolder;
@@ -97,8 +87,10 @@ div .card-body{
   border-radius: 30px;
    border: 2px solid #5f0505;
    box-shadow: 10px 10px 10px #771e03;
-   height: 220px;
-   width: 110px;
+   height: 200px;
+   width: 140px;
+   margin-top: -8px;
+   padding-top: 15px;
 }
 
 .col-sm .card div{
@@ -111,14 +103,37 @@ div .card-body{
 .col-sm .card p{
   text-align: left;
   font-size: 0.8em;
-  color: white;
+  color: black;
   font-weight: bold;
   
 }
 h5{
   color: #ffffff;
  font-size: 30px;
- border: 10px solid #2b2626;
+ border: 10px solid #1f3fce;
  text-align: center;
- background-color: rgb(27, 28, 29);
+ background-color: rgb(67, 71, 75);
 }
+
+#weathericon{
+width: 100px;
+}
+
+.card-body, #five-day{
+  padding: 1px 0 1px 10px;
+  margin: -30px -150px 25px 0 ;
+}
+.col-sm-3{
+  margin: -30px  25px 9px ;
+}
+
+.five-cards{
+  background-color: rgb(205, 232, 245);
+}
+ .col-sm div {
+   font-weight: bold;
+   color: #ec2929;
+ }
+ .five-cards:hover{
+   background-color: #4869eb;
+ }
