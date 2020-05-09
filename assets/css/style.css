@@ -50,8 +50,8 @@ ul #listcity{
   background-color: black;
 }
 section button{
-width: 250px;
-  height: 40px;
+width: 252px;
+height: 40px;
 }
 
 section button:hover{
@@ -136,4 +136,10 @@ width: 100px;
  }
  .five-cards:hover{
    background-color: #4869eb;
+ }
+ #clearhist{
+   background-color: rgb(14, 1, 1);
+ }
+ #clearhist:hover{
+   background-color: red;
  }
