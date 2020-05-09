@@ -21,14 +21,14 @@ $("input").keyup(function () {
 function searchCity() {
     // value for new search from input is from a sibling of .btn's parent
     // making it lowercase to help check for dupes later, see line 217
-    let $city = (($(this).parent()).siblings("#city-search")).val().toLowerCase();
+    let $city = (($(this).parent()).siblings("#cityenter")).val().toLowerCase();
     console.log($city);
 
     // empty search bar with setTimeout()
     // we're also capturing this value in searchSave() line 210
     // so we need it to not clear so fast that it doesn't get captured there
     function clear() {
-        $("#city-search").val("");
+        $("#cityenter").val("");
     }
     setTimeout(clear, 300);
 
@@ -191,78 +191,61 @@ $(document).ready(function () {
         historydisplay = JSON.parse(historydisplay);
         // iterate through searchHistory, displaying in HTML
         for (i = 0; i <= historydisplay.length - 1; i++) {
-            $("#Recent-" + i).text(historydisplay[i]);
+            $("#search" + i).text(historydisplay[i]);
         }
 
         let lastIndex = (historydisplay.length - 1);
         // concat a jQuery selector & click listener that calls searchPast()
-        $("#Recent-" + lastIndex).on("click", searchPast);
-        // .trigger() method that 'clicks' on that #Recent-x
-        $("#Recent-" + lastIndex).trigger("click");
+        $("#search" + lastIndex).on("click", searchPast);
+        // .trigger() method that 'clicks' on that #searchx
+        $("#search" + lastIndex).trigger("click");
     }
 });
 // Array to display the list of Hi 
 let historydisplay = [];
 
-// searchSave() uses localStorage to manage recently searched cities in sidebar
+// Function to Load Seach In local Storage and Display on HTML page
 function searchSave() {
-    // same jQuery selector from searchCity() puts value into $newCity
-    let $newCity = (($(this).parent()).siblings("#city-search")).val().toLowerCase();
-    console.log($newCity);
-    // push $newCity into searchHistory, but it may be a dupe so...
-    historydisplay.push($newCity);
-    // new Set to keep only unique values, spread operator to make that an array
-    // thanks to youtuber Techsith for the tutorial: https://www.youtube.com/watch?v=dvPybpgk5Y4
+    // same jQuery selector from searchCity() puts value into newcity
+    let newcity = (($(this).parent()).siblings("#cityenter")).val().toLowerCase();
+    console.log(newcity);
+    historydisplay.push(newcity);
     historydisplay = [...new Set(historydisplay)];
     // put in localStorage
     localStorage.setItem("cities", JSON.stringify(historydisplay));
-    // display in HTML, see below
-    searchDisplay();
-}
-
-// called by searchSave() after click listener, adds cities to sidebar
-function searchDisplay() {
-    // for loop to create new vars & concat them into jQuery selectors
-    // legit not sure why - 1, just trial and error
+    // display in HTML
     for (i = 0; i <= historydisplay.length - 1; i++) {
         // iterate through, displaying in HTML
-        $("#Recent-" + i).text(historydisplay[i]);
+        $("#search" + i).text(historydisplay[i]);
         // add .past class to create listener (below),
-        // hover effect & styles, see styles.css
-        $("#Recent-" + i).addClass("past");
+        $("#search" + i).addClass("past");
     }
 }
 
-// add listeners for loading weather from history
-// wrapped a <section> around search history, since the .past 
-// classes are added after document is fully loaded. bubble up!
-$("section").on("click", ".past", searchPast);
 
-// searchPast() copies text value of the clicked button,
-// puts in the input bar, then runs searchCity() via triggered click
-function searchPast() {
+
+// Function to reload the pastsearch infmation
+$("section").on("click", ".past", function () {
     // var for text of past city
-    let $oldCity = $(this).text();
+    let $sacecity = $(this).text();
     // put it in the input field
-    $("#city-search").val($oldCity);
+    $("#cityenter").val($sacecity);
     // this triggers the original click listener, above searchCity()
     $clicked.trigger("click");
-}
+    
+});
 
-
-// Function to re initilaize the story
+// Function to reinitilaize the story
 let $clear = $("#clearhist");
 $clear.on("click", function () {
+    //clear local storage
     localStorage.clear();
-    // empty main array
-    historydisplay = [];
-    // loop to put reinsert blankspace to keep size correct
+    //clear the History Display
+    historydisplay = []
     for (i = 0; i < 11; i++) {
-        $("#Recent-" + i).html("&nbsp;");
-        // remove .past clears listener, hover effect & styling
-        $("#Recent-" + i).removeClass("past");
+        $("#search" + i).text("");
     }
-    
+
 }); 
 
 
