@@ -3,11 +3,12 @@
   max-width: 100vw;
 }
 
-
 body{
   font-style: italic;
-background-image: url("../image/img.jpg");
-background-repeat: round;
+background-image: url("../image/img7.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+
 
   
 }
@@ -19,10 +20,10 @@ nav{
 }
 .jumbotron  {
   text-align: center;
-  background-color: transparent;
-  color:#100949;
+  
+  color:#2eadf7;
   border-radius: 0;
-  border-bottom: 10px solid rgb(250, 244, 244);
+  border-bottom: 10px solid rgb(59, 57, 57);
   padding: 2px;
  
 }
