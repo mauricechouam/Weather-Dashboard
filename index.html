@@ -2,108 +2,151 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <title>Weather Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="icon" href="/assets/image/nic.jpg">
 
-    <title>Weather-Dashboard</title>
 </head>
 
+<body>
 
-<body class="container">
     <header class="jumbotron">
         <h1 class="display-3"> <i class="fas fa-cloud-sun"></i></i> Weather-Dashboard <i
                 class="fas fa-cloud-showers-heavy"></i> </h1>
     </header>
-
-    <div class="container row">
-        <ul class="list-group col-3">
-            <p> Search For a City</p>
-            <form class="form-inline">
-                <input class="form-control " type="search" placeholder="city name" id="entercity">
-                <button id="searchbut" type="submit"><i class="fas fa-search"></i></button>
-            </form>
-            <div id="listcity">
-
-                <li class="list-group-item" id="savedcity1">Sacramento</li>
-                <li class="list-group-item" id="savedcity2"></li>
-                <li class="list-group-item" id="savedcity3"></li>
-                <li class="list-group-item" id="savedcity4"></li>
-                <li class="list-group-item" id="savedcity5"></li>
-                <li class="list-group-item" id="savedcity6"></li>
-                <li class="list-group-item" id="savedcity7"></li>
-                <li class="list-group-item" id="savedcity8"></li>
-                <li class="list-group-item" id="savedcity9"></li>
+    <div class="container">
+        <div class=" container row">
+            <!-- City Search sidebar -->
+            <div class="col-sm-3 bg-light" id="sidebar">
+                <div class="container">
+                    <!-- search bar -->
+                    <h6 id="search-header">Search for a City:</h6>
+                    <div class="col-sm-10 input-group">
+                        <!-- search input -->
+                        <input class="form-control shadow-none " id="city-search" type="text" placeholder="city name">
+                        <!-- append search button to input -->
+                        <div class="input-group-append">
+                            <button class="btn btn-primary shadow-none search-button" type="button">
+                                <i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                    <br>
+                    <!-- search history-->
+                    <div class="card search-history">
+                        <ul class="list-group list-group-flush">
+                            <section>
+                                <button id="Recent-1"></button>
+                                <button id="Recent-2"></button>
+                                <button id="Recent-3"></button>
+                                <button id="Recent-4"></button>
+                                <button id="Recent-5"></button>
+                                <button id="Recent-6"></button>
+                                <button id="Recent-7"></button>
+                                <button id="Recent-8"></button>
+                                <button id="Recent-9"></button>
+                            </section>
+                            <button type="button" class="btn btn-dark shadow-none" id="clear-history">Clear
+                                History</button>
+                        </ul>
+                    </div>
+                    <div>&nbsp;</div>
+                </div>
             </div>
-        </ul>
-        <hr>
-        <div class="card col-9 container">
-            <div class="card-body">
-                <h2 class="card-title" id="cityname">City Name</h2>
-                <hr>
-                <h6 class="card-subtitle mb-2 text-muted" id="tempcity"><i
-                            class="fas fa-temperature-low"></i>Temperature : </h6>
-                <hr>
-                <h6 class="card-subtitle mb-2 text-muted" id="Humcity"> Humidity :  </h6>
-                <hr>
-                <h6 class="card-subtitle mb-2 text-muted" id="windspeed"> Wind Speed : </h6>
-                <hr>
-                <h6 class="card-subtitle mb-2 text-muted" id="uvindex"> UV Index :</h6>
-                <hr>
-            </div>
-            <h2>5-Day Forecast:</h2>
-            <div class="container" id="forescast">
-                <div class="card c" style="width: 8rem" id="day1">
-                    <h5 class="card-title" id="date">Date</h5>
-                    <p id="weatherday"> weather </p>
-                    <p id="tempday"> temperature </p>
-                    <P id="humday"> Humidity</P>
-                </div>
-                <div class="card c" style="width: 8rem" id="day2">
-                    <h5 class="card-title" id="date">Date</h5>
-                    <p id="weatherday"> weather </p>
-                    <p id="tempday"> temperature </p>
-                    <P id="humday"> Humidity</P>
-                </div>
-                <div class="card c" style="width: 8rem" id="day3">
-                    <h5 class="card-title" id="date">Date</h5>
-                    <p id="weatherday"> weather </p>
-                    <p id="tempday"> temperature </p>
-                    <P id="humday"> Humidity</P>
-                </div>
-                <div class="card c" style="width: 8rem" id="day4">
-                    <h5 class="card-title" id="date">Date</h5>
-                    <p id="weatherday"> weather </p>
-                    <p id="tempday"> temperature </p>
-                    <P id="humday"> Humidity</P>
-                </div>
-                <div class="card c" style="width: 8rem" id="day5">
-                    <h5 class="card-title" id="date">Date</h5>
-                    <p id="weatherday"> weather </p>
-                    <p id="tempday"> temperature </p>
-                    <P id="humday"> Humidity</P>
-                </div>
 
+            <!-- Main View -->
+            <div class="col-sm-8">
+                <!-- Current Conditionions View -->
+                <div class="container">
+                    <div class="card card-body current-view" id="current-view">
+                        <div class="card-title " id="city-stats">
+
+                            <h2 id="city-name">City name :</h2>
+                            <p id="city-date"></p>
+                            <img id="current-icon">
+
+                            <h6 class="card-subtitle mb-2 "> Temperature : <span id="temp"></span></h6>
+                            <hr>
+                            <h6 class="card-subtitle mb-2 ">Humidity : <span id="humidity"></span></h6>
+                            <hr>
+                            <h6 class="card-subtitle mb-2 "> Wind Speed : <span id="wind"></span></h6>
+                            <hr>
+                            <h6 class="card-subtitle mb-2"> UV Index : <span id="uv-index"></span></h6>
+                        </div>
+                    </div>
+                    <!-- 5 Day Forecast -->
+                    <!-- Dates and weather stats dynamically set -->
+                    <div id="five-day">
+                        <h5>5 Days Forecast</h5>
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="card bg-primary five-cards">
+                                    <!-- id's are numbered 0-4 to make loop easier, see script.js -->
+                                    <div class="card-title" id="day-0">Date</div>
+                                    <img class="icons" id="icon0">
+                                    <p id="high0">High:</p>
+                                    <p id="low0">Low:</p>
+                                    <p id="hum0">Humidity:</p>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="card bg-primary five-cards">
+                                    <div class="card-title" id="day-1">Date</div>
+                                    <img class="icons" id="icon1">
+                                    <p id="high1">High:</p>
+                                    <p id="low1">Low:</p>
+                                    <p id="hum1">Humidity:</p>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="card bg-primary five-cards">
+                                    <div class="card-title" id="day-2">Date</div>
+                                    <img class="icons" id="icon2">
+                                    <p id="high2">High:</p>
+                                    <p id="low2">Low:</p>
+                                    <p id="hum2">Humidity:</p>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="card bg-primary five-cards">
+                                    <div class="card-title" id="day-3">Date</div>
+                                    <img class="icons" id="icon3">
+                                    <p id="high3">High:</p>
+                                    <p id="low3">Low:</p>
+                                    <p id="hum3">Humidity:</p>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="card bg-primary five-cards">
+                                    <div class="card-title" id="day-4">Date</div>
+                                    <img class="icons" id="icon4">
+                                    <p id="high4">High:</p>
+                                    <p id="low4">Low:</p>
+                                    <p id="hum4">Humidity:</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <!-- main jQuery library -->
-    <script src="https://code.jquery.com/jquery-3.5.0.min.js"
-        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-    <!-- jQuery UI -->
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-    <!-- moment.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <!-- my script.js -->
-    <script src="./assets/script/script.js"></script>
 
+
+        <!-- main jQuery library -->
+        <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+            integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+        <!-- jQuery UI -->
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+            integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+        <!-- moment.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <!-- my script.js -->
+        <script src="./assets/script/script.js"></script>
 
 </body>
 

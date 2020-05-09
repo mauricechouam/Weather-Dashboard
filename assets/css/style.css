@@ -69,5 +69,15 @@ nav{
       font-weight: bolder;
   }
 
+  div #forescast{
+    padding-top: 1px;
+    padding-bottom: 30px;
+  }
+
+  div .card-body{
+      background-color: rgb(205, 232, 245);
+      color: black;
+  }
+
 
  

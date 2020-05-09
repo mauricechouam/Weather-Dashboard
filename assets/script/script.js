@@ -1,12 +1,3 @@
-var cityname = $("#cityname");
-var tempcity = $("#tempcity");
-var humcity = $("#humcity");
-var windspeed = $("#windsped");
-var uvindex = $("#uvindex");
-var savecity = $("#savecity");
-
-
-//funtion to display the Daily Weather
 /* On first load or refresh */
 $(document).ready(function () {
 
@@ -26,10 +17,6 @@ $(document).ready(function () {
             $("#Recent-" + i).text(searchHistory[i]);
         }
 
-        // with sidebar populated, use highest index in searchHistory
-        // to display weather from last city typed into search bar
-        // similar method to searchPast(), see line 243
-        // var to hold last index value
         let lastIndex = (searchHistory.length - 1);
         // concat a jQuery selector & click listener that calls searchPast()
         $("#Recent-" + lastIndex).on("click", searchPast);
@@ -39,7 +26,7 @@ $(document).ready(function () {
 });
 
 // Today's Date in #current-view card
-let $cityDate = moment().format("l");
+let $cityDate = moment().format("llll");
 $("#city-date").text($cityDate);
 
 /* City Search Functions */
@@ -72,7 +59,7 @@ function searchCity() {
 
     /* Query for Current Weather (#current-view) */
     let firstQueryURL = "https://api.openweathermap.org/data/2.5/weather?q=" +
-        $city + "&units=imperial&appid=c3632a824cb9d8b82f74d0ec35c2639b";
+        $city + "&units=imperial&appid=e7c303b6206e1039548ab3f11d2207b3";
     $.ajax({
         url: firstQueryURL,
         method: "GET"
@@ -87,11 +74,11 @@ function searchCity() {
         let $currentIconURL = "http://openweathermap.org/img/w/" + $currentIcon + ".png";
 
         // display in html
-        cityname.text($city);
-        tempcity.text("Temperature: " + $currentTemp);
-        humcity.text("Humidity: " + $currentHum);
-        windspeed.text("Wind Speed: " + $currentWind);
-        uvindex.attr({ "src": $currentIconURL, "alt": "Current Weather Icon" });
+        $("#city-name").text($city);
+        $("#temp").text( $currentTemp);
+        $("#humidity").text( $currentHum);
+        $("#wind").text( $currentWind);
+        $("#current-icon").attr({ "src": $currentIconURL, "alt": "Current Weather Icon" });
 
         // lat & lon for secondQueryURL below
         let lat = response.coord.lat;
@@ -100,7 +87,7 @@ function searchCity() {
         /* Query for One Call API - this will give us our info for 5 Day Forecast cards */
         let secondQueryURL =
             "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon +
-            "&exclude=hourly&units=imperial&appid=c3632a824cb9d8b82f74d0ec35c2639b";
+            "&exclude=hourly&units=imperial&appid=e7c303b6206e1039548ab3f11d2207b3";
         $.ajax({
             url: secondQueryURL,
             method: "GET"
@@ -156,7 +143,7 @@ function searchCity() {
                 // first convert each index to moment Obj w/ .unix()
                 days[i] = moment.unix(days[i]);
                 // then extract just the MM/DD/YYYY human readable date
-                days[i] = days[i].format("l");
+                days[i] = days[i].format("ddd,ll");
                 // display dates in HTML
                 $("#day-" + i).text(days[i]);
             }
@@ -282,4 +269,3 @@ function clearHistory() {
 // .clear-schedule listener calls clearSchedule()
 let $clear = $("#clear-history");
 $clear.on("click", clearHistory);
-
