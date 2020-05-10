@@ -32,9 +32,13 @@ any trip according to the weather of the city . The Application provides 05 days
 - WHEN I open the weather dashboard
 --> THEN I am presented with the last searched city forecast
 ```
-
 ## Technologie
 - Interface AND DESIGN : html ,Css, Bootstrap
 - Interaction : JavaScipt
-- Library :Jquery , Moment
+- Library and UI :JQuery, Moment.js
+- API : OpenWeather API
 
+## Resources
+- Youtube Tutorial  How to USe Openweather API : https://www.youtube.com/watch?v=S-gMLzlG_ME
+- Youtube Tutorial JavaScript Lastest Features : https://www.youtube.com/playlist?list=PL7pEw9n3GkoVFt9GgQEHKfZ_C5b3YUK0I
+- OpenWeather API : https://openweathermap.org/api 
