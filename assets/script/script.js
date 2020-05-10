@@ -3,7 +3,6 @@ let $cityDate = moment().format("llll");
 $("#currentdate").text($cityDate);
 
 /* City Search Functions */
-
 // click listener calls citysearch() and soon a function related to the .search-history sidebar
 let $clicked = $(".buttonsearch");
 $clicked.on("click", citysearch);
@@ -14,7 +13,6 @@ $("input").keyup(function () {
         $clicked.click();
     }
 })
-
 // Seachcityname function
 function citysearch() {
     // saved citer enter by USer in a let
@@ -45,11 +43,9 @@ function citysearch() {
         $("#humcity").text( $currentHum);
         $("#windspeed").text( $currentWind);
         $("#weathericon").attr({ "src": $currentIconURL, "alt": "Current Weather Icon" });
-
         // lat & lon for secondQueryURL below
         let lat = response.coord.lat;
         let lon = response.coord.lon;
-
         /* Query for One Call API - this will give us our info for 5 Day Forecast cards */
         let secondQueryURL =
             "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon +
@@ -59,10 +55,6 @@ function citysearch() {
             method: "GET"
         }).then(function (response) {
             console.log(response);
-
-            // UV Index is in this response, but we're assigning it to the #current-view area
-            // both value and btn classes will update to diplay UV index color per:
-            // https://www.weather.gov/rah/uv
             let $uv = response.current.uvi;
             // var for displaying in html & grabbing the right color class
             let $uvIndex = $("#uv-index");
@@ -93,7 +85,6 @@ function citysearch() {
                 $uvIndex.addClass("btn-climate-change");
                 $uvIndex.removeClass("btn-success btn-warning btn-hazard btn-danger");
             }
-
             // Date Assignment - convert UNIX response to human readable
             // array to hold timestamps
             let days = [];
@@ -101,20 +92,17 @@ function citysearch() {
             for (i = 1; i < 6; i++) {
                 days[i] = response.daily[i].dt;
             }
-            // filter out that empty index 0, thanks to Dominik
-            // https://stackoverflow.com/users/9251185/dominik
             days = days.filter(item => item);
             // convert, extract, display:
             for (i = 0; i < days.length; i++) {
-                // first convert each index to moment Obj w/ .unix()
+                // first convert each index to moment Using Unix
                 days[i] = moment.unix(days[i]);
-                // then extract just the MM/DD/YYYY human readable date
+                // Change date format 
                 days[i] = days[i].format("ddd,ll");
                 // display dates in HTML
-                $("#day-" + i).text(days[i]);
+                $("#day" + i).text(days[i]);
             }
             console.log(days);
-
             // array for highTemps on cards, parsed off decimals
             let highTemps = [];
             // same method for skipping and removing current day info as above
@@ -124,9 +112,8 @@ function citysearch() {
             highTemps = highTemps.filter(item => item);
             // loop through and display
             for (i = 0; i < highTemps.length; i++) {
-                $("#high" + i).text("High: " + highTemps[i]);
+                $("#highday" + i).text("High: " + highTemps[i]);
             }
-
             // same process for lows as with highs
             let lowTemps = [];
             for (i = 1; i < 6; i++) {
@@ -134,9 +121,8 @@ function citysearch() {
             }
             lowTemps = lowTemps.filter(item => item);
             for (i = 0; i < lowTemps.length; i++) {
-                $("#low" + i).text("Low: " + lowTemps[i]);
+                $("#lowday" + i).text("Low: " + lowTemps[i]);
             }
-
             // and again for humidity
             let hums = [];
             for (i = 1; i < 6; i++) {
@@ -144,9 +130,8 @@ function citysearch() {
             }
             hums = hums.filter(item => item);
             for (i = 0; i < hums.length; i++) {
-                $("#hum" + i).text("Humidity: " + hums[i]);
+                $("#humday" + i).text("Humidity: " + hums[i]);
             }
-
             // and again for icons, w/ extra step
             let icons = [];
             // each icon will need its own concatenated URL
@@ -165,11 +150,7 @@ function citysearch() {
         });
     });
 }
-
-// Fucntion to 
-// otherwise, empty storage means nothing happens until user generates a search
-
-    // fillFromStorage fills sidebar with anthything in localStorage
+// fillFromStorage fills sidebar with anthything in localStorage
 $(document).ready(function () {
     // if localStorage is not empty, call fillFromStorage()
     if (localStorage.getItem("cities")) {
@@ -189,7 +170,6 @@ $(document).ready(function () {
      }
  });
     
- 
 // Array to display the list of HISTORY
 let historydisplay = [];
 // Function to Load Seach In local Storage and Display on HTML page
