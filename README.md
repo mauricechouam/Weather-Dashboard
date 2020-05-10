@@ -15,7 +15,7 @@ SO THAT I can plan a trip accordingly
 
 ## Description
 weather dashboard is an application that will run in the browser and feature dynamically updated HTML and CSS.
-It provides the city  weather- description  accrodding to the city provider by USER.With this Application User will be able to plan 
+It provides the city  weather- description  according to the city provided by USER.With this Application User will be able to plan 
 any trip according to the weather of the city . The Application provides 05 days forecast for more activity prevision.
 
 ## Usage
