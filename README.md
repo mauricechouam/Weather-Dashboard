@@ -19,9 +19,9 @@ It provides the city  weather- description  accrodding to the city provider by U
 any trip according to the weather of the city . The Application provides 05 days forecast for more activity prevision.
 
 ## Usage
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
-WHEN I view current weather conditions for that city
+- WHEN I search for a city
+- THEN I am presented with current and future conditions for that city and that city is added to the search history
+- WHEN I view current weather conditions for that city
 THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
 WHEN I view the UV index
 THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
@@ -33,4 +33,4 @@ WHEN I open the weather dashboard
 THEN I am presented with the last searched city forecast
 ```
 
-## Technologie]
+## Technologie
