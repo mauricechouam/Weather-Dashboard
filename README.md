@@ -31,7 +31,7 @@ any trip according to the weather of the city . The Application provides 05 days
 --> THEN I am again presented with current and future conditions for that city
 - WHEN I open the weather dashboard
 --> THEN I am presented with the last searched city forecast
-```
+
 ## Technologie
 - Interface AND DESIGN : html ,Css, Bootstrap
 - Interaction : JavaScipt
@@ -41,4 +41,11 @@ any trip according to the weather of the city . The Application provides 05 days
 ## Resources
 - Youtube Tutorial  How to USe Openweather API : https://www.youtube.com/watch?v=S-gMLzlG_ME
 - Youtube Tutorial JavaScript Lastest Features : https://www.youtube.com/playlist?list=PL7pEw9n3GkoVFt9GgQEHKfZ_C5b3YUK0I
-- OpenWeather API : https://openweathermap.org/api 
+- OpenWeather API : https://openweathermap.org/api
+
+
+
+
+Appplication made From Scratch By Maurice Chouammou  
+ GitHub: https://github.com/mauricechouam
+
